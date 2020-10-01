@@ -1,0 +1,85 @@
+package pilados;
+import java.util.Scanner;
+public class PilaDos {
+int a=100 , b=200;
+int pilaN [] = new int [a];
+int pila2 [] = new int [b];
+int tope = 0;
+int tope2 = 100;
+// creamos las variables fuera del metodo main y de los otros metodos
+// de esta manera los metodos pueden encontrar las variables
+
+public void llenar ()// con este metodo lo que se hace es llenar las pilas
+{
+
+int num = 0;
+for ( int i = 0; i &lt; a ;i++) //tratamos de comparar una variable &quot;x&quot;
+// de esta manera se puede entrar al ciclo que ira llenando la pila
+
+{
+if (tope &lt; a ) //este es el ciclo que llena la primer pila
+{
+pilaN [tope] = num;
+num++;
+tope++;
+} else {System.out.println (&quot;pila llena&quot;);
+
+break; }
+int num2 = 100; //esta es la segunda pila y se repite el proceso
+for ( int j = 300; j &gt; b; j++) {
+if (tope2 &lt; b ) {
+pila2 [tope2] = num2;
+num2++;
+tope2++;
+} else {System.out.print (&quot; &quot;);
+break;
+}
+}
+
+}
+
+}
+public void mostrar () //este metodo lo que hace es mostrar las pilas
+//pero por alguna razon, sale en forma de matriz ,F.
+{
+for (int i =tope-1; i&gt;= 0; i--) {
+System.out.print ( &quot; &quot; +pilaN [i]);
+}
+
+for (int i =tope2-1; i&gt;=100; i--) {
+System.out.println ( &quot; &quot;+ pila2 [i]);
+}
+
+}
+public void eliminar () // este metodo elimina los valores de la pila
+{
+tope--;
+System.out.println (&quot;dato eliminado&quot;);
+tope2--;
+System.out.println (&quot;dato eliminado&quot;);
+}
+
+public static void main(String[] args) //el metodo main llama a los otros
+//otros metodos.
+{
+PilaDos c = new PilaDos ();
+Scanner sc = new Scanner (System.in);
+
+int opt = 0;
+do {
+System.out.println ( &quot;\n1 llenar\n&quot; + &quot;2 mostrar&quot;);
+System.out.println ( &quot;3 eliminar&quot; );
+System.out.println ( &quot;4 salir&quot; );
+
+switch (opt = sc.nextInt() ){
+case 1: c.llenar();
+break;
+case 2: c.mostrar ();
+
+break;
+case 3: c.eliminar ();
+break;
+}
+} while (opt !=4);
+}
+}
